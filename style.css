@@ -1,0 +1,155 @@
+/* Mill Road site: colors follow the game (Assets/Scripts/Core/GameConfig.cs) */
+@font-face {
+  font-family: "Nunito";
+  src: url("img/nunito-extrabold.ttf") format("truetype");
+  font-weight: 800;
+  font-display: swap;
+}
+
+:root {
+  --bg: #f4ead2;
+  --surface: #fff9ec;
+  --surface-2: #fbefd6;
+  --ink: #3a2817;
+  --muted: #6b5640;
+  --line: #e5d2ad;
+  --wood: #a46c3a;
+  --wood-dark: #7a4d26;
+  --accent: #d65a2c;
+  --accent-ink: #fff9ec;
+  --grass: #8bbd5c;
+  --grass-deep: #6f9f45;
+  --shadow: 0 1px 2px rgba(58, 40, 23, .06), 0 8px 24px rgba(58, 40, 23, .08);
+  --radius: 20px;
+  --heading: "Nunito", ui-rounded, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1c160f;
+    --surface: #282017;
+    --surface-2: #30261b;
+    --ink: #f3e6cc;
+    --muted: #c3ae8e;
+    --line: #43362a;
+    --wood-dark: #d39a62;
+    --accent: #f08a5d;
+    --accent-ink: #1c160f;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 8px 24px rgba(0, 0, 0, .25);
+  }
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+a { color: var(--accent); text-underline-offset: 2px; }
+a:hover { text-decoration-thickness: 2px; }
+img { max-width: 100%; height: auto; display: block; }
+h1, h2, h3 { font-family: var(--heading); font-weight: 800; line-height: 1.2; letter-spacing: -.01em; }
+h2 { font-size: 26px; margin: 0 0 6px; }
+.wrap { max-width: 880px; margin: 0 auto; padding: 0 16px; }
+.muted { color: var(--muted); }
+.small { font-size: 15px; }
+
+/* top bar */
+.topbar { background: var(--grass); border-bottom: 4px solid var(--wood-dark); }
+.topbar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 64px; }
+.brand { display: flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; }
+.brand img { width: 38px; height: 38px; border-radius: 9px; box-shadow: 0 1px 3px rgba(0, 0, 0, .2); }
+.brand span { font-family: var(--heading); font-weight: 800; font-size: 20px; color: #3a2817; }
+.nav { display: flex; gap: 4px; }
+.nav a { color: #3a2817; text-decoration: none; font-weight: 600; font-size: 15px; padding: 6px 12px; border-radius: 999px; }
+.nav a:hover { background: rgba(255, 255, 255, .3); }
+.nav a[aria-current="page"] { background: rgba(58, 40, 23, .14); }
+
+/* hero */
+.hero { padding: 48px 0 24px; }
+.hero .wrap { display: grid; grid-template-columns: 1fr 280px; gap: 48px; align-items: center; }
+.hero-icon { width: 88px; height: 88px; border-radius: 20px; box-shadow: var(--shadow); margin-bottom: 18px; }
+.hero h1 { font-size: 44px; margin: 0 0 6px; }
+.tagline { font-size: 20px; color: var(--muted); margin: 0 0 20px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 0; list-style: none; }
+.chips li { background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 5px 14px 5px 10px; font-size: 15px; font-weight: 600; }
+.chips li::before { content: "✓"; color: var(--grass-deep); font-weight: 800; margin-right: 6px; }
+.phone { border-radius: 28px; border: 6px solid #2b2117; box-shadow: var(--shadow); background: #2b2117; }
+.phone img { border-radius: 22px; }
+
+/* sections */
+.section { padding: 32px 0; }
+.section-head { margin-bottom: 18px; }
+.section-head p { margin: 0; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); padding: 8px 28px 24px; }
+
+/* how to play */
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; padding: 0; margin: 0; list-style: none; counter-reset: step; }
+.steps li { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 16px 18px; counter-increment: step; }
+.steps li::before {
+  content: counter(step); display: inline-grid; place-items: center; width: 30px; height: 30px; margin-bottom: 8px;
+  border-radius: 50%; background: var(--accent); color: var(--accent-ink); font-family: var(--heading); font-weight: 800;
+}
+.steps strong { display: block; font-family: var(--heading); font-weight: 800; font-size: 18px; margin-bottom: 2px; }
+.steps span { color: var(--muted); font-size: 15px; }
+
+/* FAQ */
+.faq { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
+.faq details { border-top: 1px solid var(--line); }
+.faq details:first-child { border-top: 0; }
+.faq summary {
+  list-style: none; cursor: pointer; padding: 18px 56px 18px 24px; position: relative;
+  font-family: var(--heading); font-weight: 800; font-size: 18px;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+  content: "+"; position: absolute; right: 24px; top: 50%; transform: translateY(-50%);
+  font-size: 24px; color: var(--accent); transition: transform .2s;
+}
+.faq details[open] summary::after { transform: translateY(-50%) rotate(45deg); }
+.faq summary:hover { background: var(--surface-2); }
+.faq summary:focus-visible { outline: 3px solid var(--accent); outline-offset: -3px; }
+.faq details p { margin: 0; padding: 0 24px 20px; color: var(--muted); }
+
+/* contact form: it comes from another site and cannot size itself, so it gets the full width
+   (up to 960px, edge to edge on phones) and a fixed height that fits every question */
+.form-frame {
+  display: block; width: min(960px, 100vw); margin-left: 50%; transform: translateX(-50%);
+  height: 1300px; border: 0; background: #fff;
+}
+.form-note { text-align: center; margin: 14px 0 0; }
+
+/* privacy page */
+.page-head { padding: 44px 0 8px; }
+.page-head h1 { font-size: 40px; margin: 0 0 4px; }
+.summary { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 0; margin: 20px 0 0; list-style: none; }
+.summary li { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 12px 16px 12px 44px; position: relative; font-weight: 600; }
+.summary li::before {
+  content: "✓"; position: absolute; left: 14px; top: 12px; width: 20px; height: 20px; border-radius: 50%;
+  display: grid; place-items: center; font-size: 12px; background: var(--grass-deep); color: #fff;
+}
+.policy h2 { font-size: 22px; margin: 28px 0 6px; }
+.policy ul { padding-left: 22px; }
+.policy li { margin: 4px 0; }
+
+/* footer */
+.footer { border-top: 1px solid var(--line); margin-top: 32px; padding: 24px 0 40px; }
+.footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; font-size: 15px; }
+.footer nav { display: flex; gap: 20px; }
+
+@media (max-width: 720px) {
+  .hero { padding: 32px 0 8px; }
+  .hero .wrap { grid-template-columns: 1fr; gap: 28px; }
+  .hero h1 { font-size: 36px; }
+  .phone { width: 220px; margin: 0 auto; }
+  .steps { grid-template-columns: 1fr; }
+  .card { padding: 4px 20px 20px; }
+  .summary { grid-template-columns: 1fr; }
+  .page-head h1 { font-size: 32px; }
+  .form-frame { height: 1200px; }
+}
+@media (max-width: 420px) {
+  .nav a { padding: 6px 9px; }
+  .brand span { font-size: 18px; }
+}
